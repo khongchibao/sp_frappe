@@ -3,7 +3,7 @@ name = "sp_frappe"
 authors = [
     { name = "King Group", email = "dev@kinggroup.vn"}
 ]
-description = "Spec San pham carton (Technical Data Sheet) cho King Group"
+description = "Spec sản phẩm carton (Technical Data Sheet) cho King Group - Frappe/ERPNext"
 requires-python = ">=3.14"
 readme = "README.md"
 dynamic = ["version"]
@@ -14,6 +14,10 @@ dependencies = [
 [build-system]
 requires = ["flit_core >=3.4,<4"]
 build-backend = "flit_core.buildapi"
+
+[tool.bench.frappe-dependencies]
+frappe = ">=16.50.0,<17.0.0"
+erpnext = ">=16.50.0,<17.0.0"
 
 # These dependencies are only installed when developer mode is enabled
 [tool.bench.dev-dependencies]
