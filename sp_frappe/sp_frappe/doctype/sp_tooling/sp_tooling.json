@@ -1,0 +1,158 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-10-23 14:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "tooling_type",
+  "status",
+  "customer",
+  "cb1",
+  "storage_location",
+  "last_used_on",
+  "sb_life",
+  "usage_count",
+  "max_life",
+  "cb2",
+  "life_percent",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "tooling_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Loại công cụ",
+   "options": "Khuôn bế\nBản in\nAnilox",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "default": "Sẵn sàng",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Trạng thái",
+   "options": "Sẵn sàng\nĐang dùng\nSửa chữa\nHết hạn"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Khách hàng",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break",
+   "label": ""
+  },
+  {
+   "fieldname": "storage_location",
+   "fieldtype": "Data",
+   "label": "Vị trí lưu kho"
+  },
+  {
+   "fieldname": "last_used_on",
+   "fieldtype": "Date",
+   "label": "Ngày dùng gần nhất"
+  },
+  {
+   "fieldname": "sb_life",
+   "fieldtype": "Section Break",
+   "label": "Tuổi thọ"
+  },
+  {
+   "default": "0",
+   "fieldname": "usage_count",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Số lần đã dùng",
+   "read_only": 1
+  },
+  {
+   "fieldname": "max_life",
+   "fieldtype": "Int",
+   "label": "Tuổi thọ tối đa (lần)"
+  },
+  {
+   "fieldname": "cb2",
+   "fieldtype": "Column Break",
+   "label": ""
+  },
+  {
+   "fieldname": "life_percent",
+   "fieldtype": "Percent",
+   "in_list_view": 1,
+   "label": "Đã dùng (%)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Ghi chú"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-23 14:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "SP Frappe",
+ "name": "SP Tooling",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SP Quản lý",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SP Kỹ thuật",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SP Kinh doanh"
+  },
+  {
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SP QC"
+  }
+ ],
+ "search_fields": "tooling_type,customer,status",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

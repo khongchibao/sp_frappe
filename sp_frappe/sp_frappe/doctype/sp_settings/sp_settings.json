@@ -1,0 +1,92 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-10-23 14:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "auto_create_item",
+  "item_group",
+  "stock_uom",
+  "sb_lock",
+  "revision_lock_fields"
+ ],
+ "fields": [
+  {
+   "default": "1",
+   "fieldname": "auto_create_item",
+   "fieldtype": "Check",
+   "label": "Tự tạo Item ERPNext khi duyệt"
+  },
+  {
+   "description": "Mặc định: Products (tự tạo khi cài app).",
+   "fieldname": "item_group",
+   "fieldtype": "Link",
+   "label": "Nhóm Item",
+   "options": "Item Group"
+  },
+  {
+   "description": "Mặc định: Thùng (tự tạo khi cài app).",
+   "fieldname": "stock_uom",
+   "fieldtype": "Link",
+   "label": "Đơn vị tính",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "sb_lock",
+   "fieldtype": "Section Break",
+   "label": "Khóa sửa sau khi duyệt"
+  },
+  {
+   "default": "customer\ncustomer_code\nbox_style\nply\nflute\nboard_grade\ninner_l\ninner_w\ninner_h\nblank_l\nblank_w\njoint_type\nprint_method\ncutting_die\nprinting_plate\ncolors\noperations",
+   "description": "Mỗi dòng một fieldname của SP Product Spec. Muốn sửa các trường này phải tạo phiên bản mới.",
+   "fieldname": "revision_lock_fields",
+   "fieldtype": "Small Text",
+   "label": "Các trường bị khóa sau khi duyệt"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-10-23 14:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "SP Frappe",
+ "name": "SP Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "print": 1,
+   "read": 1,
+   "role": "SP Quản lý",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "SP Kỹ thuật"
+  },
+  {
+   "read": 1,
+   "role": "SP Kinh doanh"
+  },
+  {
+   "read": 1,
+   "role": "SP QC"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

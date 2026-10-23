@@ -1,0 +1,9 @@
+[
+ {
+  "doctype": "UOM",
+  "enabled": 1,
+  "must_be_whole_number": 1,
+  "name": "Thùng",
+  "uom_name": "Thùng"
+ }
+]

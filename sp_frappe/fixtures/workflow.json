@@ -1,0 +1,100 @@
+[
+ {
+  "doctype": "Workflow",
+  "document_type": "SP Product Spec",
+  "is_active": 1,
+  "name": "SP Product Spec Approval",
+  "override_status": 0,
+  "send_email_alert": 0,
+  "states": [
+   {
+    "allow_edit": "SP Kỹ thuật",
+    "doc_status": "0",
+    "state": "Nháp"
+   },
+   {
+    "allow_edit": "SP Quản lý",
+    "doc_status": "0",
+    "state": "Nháp"
+   },
+   {
+    "allow_edit": "SP Kỹ thuật",
+    "doc_status": "0",
+    "state": "Chờ duyệt mẫu"
+   },
+   {
+    "allow_edit": "SP Quản lý",
+    "doc_status": "0",
+    "state": "Chờ duyệt mẫu"
+   },
+   {
+    "allow_edit": "SP QC",
+    "doc_status": "0",
+    "state": "Đã duyệt"
+   },
+   {
+    "allow_edit": "SP Quản lý",
+    "doc_status": "0",
+    "state": "Đã duyệt"
+   },
+   {
+    "allow_edit": "SP Quản lý",
+    "doc_status": "0",
+    "state": "Ngưng"
+   }
+  ],
+  "transitions": [
+   {
+    "action": "Gửi duyệt",
+    "allow_self_approval": 1,
+    "allowed": "SP Kỹ thuật",
+    "next_state": "Chờ duyệt mẫu",
+    "state": "Nháp"
+   },
+   {
+    "action": "Gửi duyệt",
+    "allow_self_approval": 1,
+    "allowed": "SP Quản lý",
+    "next_state": "Chờ duyệt mẫu",
+    "state": "Nháp"
+   },
+   {
+    "action": "Duyệt",
+    "allow_self_approval": 1,
+    "allowed": "SP Kinh doanh",
+    "next_state": "Đã duyệt",
+    "state": "Chờ duyệt mẫu"
+   },
+   {
+    "action": "Duyệt",
+    "allow_self_approval": 1,
+    "allowed": "SP Quản lý",
+    "next_state": "Đã duyệt",
+    "state": "Chờ duyệt mẫu"
+   },
+   {
+    "action": "Trả lại",
+    "allow_self_approval": 1,
+    "allowed": "SP Kinh doanh",
+    "next_state": "Nháp",
+    "state": "Chờ duyệt mẫu"
+   },
+   {
+    "action": "Trả lại",
+    "allow_self_approval": 1,
+    "allowed": "SP Quản lý",
+    "next_state": "Nháp",
+    "state": "Chờ duyệt mẫu"
+   },
+   {
+    "action": "Ngưng sử dụng",
+    "allow_self_approval": 1,
+    "allowed": "SP Quản lý",
+    "next_state": "Ngưng",
+    "state": "Đã duyệt"
+   }
+  ],
+  "workflow_name": "SP Product Spec Approval",
+  "workflow_state_field": "spec_status"
+ }
+]

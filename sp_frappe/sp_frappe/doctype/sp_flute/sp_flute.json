@@ -1,0 +1,152 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "field:flute_code",
+ "creation": "2026-10-23 14:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "flute_code",
+  "ply",
+  "thickness_mm",
+  "cb1",
+  "length_allowance_mm",
+  "width_allowance_mm",
+  "glue_flap_mm",
+  "sb_note",
+  "is_assumed",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "flute_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Mã sóng",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "ply",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Số lớp",
+   "options": "3\n5\n7",
+   "reqd": 1
+  },
+  {
+   "fieldname": "thickness_mm",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Độ dày (mm)",
+   "precision": "1"
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break",
+   "label": ""
+  },
+  {
+   "description": "Cộng vào chiều dài phôi. [GIẢ ĐỊNH] - chỉnh theo số thực tế của xưởng.",
+   "fieldname": "length_allowance_mm",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Bù khổ dài (mm)",
+   "precision": "1"
+  },
+  {
+   "description": "Cộng vào chiều rộng phôi. [GIẢ ĐỊNH] - chỉnh theo số thực tế của xưởng.",
+   "fieldname": "width_allowance_mm",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Bù khổ rộng (mm)",
+   "precision": "1"
+  },
+  {
+   "default": "35",
+   "description": "Mép dán/ghim. [GIẢ ĐỊNH] - mặc định 35 mm.",
+   "fieldname": "glue_flap_mm",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Mép dán (mm)"
+  },
+  {
+   "fieldname": "sb_note",
+   "fieldtype": "Section Break",
+   "label": "Ghi chú"
+  },
+  {
+   "default": "1",
+   "fieldname": "is_assumed",
+   "fieldtype": "Check",
+   "label": "Hệ số giả định - cần xác nhận"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Mô tả"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-23 14:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "SP Frappe",
+ "name": "SP Flute",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SP Quản lý",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SP Kỹ thuật",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SP Kinh doanh"
+  },
+  {
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SP QC"
+  }
+ ],
+ "search_fields": "ply,thickness_mm",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

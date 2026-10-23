@@ -1,0 +1,26 @@
+[
+ {
+  "doctype": "Workflow State",
+  "name": "Nháp",
+  "style": "Danger",
+  "workflow_state_name": "Nháp"
+ },
+ {
+  "doctype": "Workflow State",
+  "name": "Chờ duyệt mẫu",
+  "style": "Warning",
+  "workflow_state_name": "Chờ duyệt mẫu"
+ },
+ {
+  "doctype": "Workflow State",
+  "name": "Đã duyệt",
+  "style": "Success",
+  "workflow_state_name": "Đã duyệt"
+ },
+ {
+  "doctype": "Workflow State",
+  "name": "Ngưng",
+  "style": "Inverse",
+  "workflow_state_name": "Ngưng"
+ }
+]

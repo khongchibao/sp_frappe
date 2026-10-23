@@ -1,0 +1,8 @@
+*.pyc
+__pycache__/
+*.egg-info/
+node_modules/
+.DS_Store
+.ruff_cache/
+.pytest_cache/
+sp_frappe/public/dist/
