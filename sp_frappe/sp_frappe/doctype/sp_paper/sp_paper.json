@@ -1,0 +1,129 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "field:paper_code",
+ "creation": "2026-10-23 14:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "paper_code",
+  "paper_type",
+  "gsm",
+  "cb1",
+  "color",
+  "supplier",
+  "active"
+ ],
+ "fields": [
+  {
+   "fieldname": "paper_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Mã giấy",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "paper_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Loại giấy",
+   "options": "Kraft\nTest liner\nMedium\nDuplex\nIvory\nKhác",
+   "reqd": 1
+  },
+  {
+   "fieldname": "gsm",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Định lượng (gsm)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break",
+   "label": ""
+  },
+  {
+   "default": "Nâu",
+   "fieldname": "color",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Màu giấy",
+   "options": "Nâu\nTrắng"
+  },
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Nhà cung cấp",
+   "options": "Supplier"
+  },
+  {
+   "default": "1",
+   "fieldname": "active",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Đang sử dụng"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-23 14:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "SP Frappe",
+ "name": "SP Paper",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SP Quản lý",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SP Kỹ thuật",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SP Kinh doanh"
+  },
+  {
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SP QC"
+  }
+ ],
+ "search_fields": "paper_type,gsm",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

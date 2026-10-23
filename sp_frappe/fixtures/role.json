@@ -1,0 +1,30 @@
+[
+ {
+  "desk_access": 1,
+  "disabled": 0,
+  "doctype": "Role",
+  "name": "SP Kỹ thuật",
+  "role_name": "SP Kỹ thuật"
+ },
+ {
+  "desk_access": 1,
+  "disabled": 0,
+  "doctype": "Role",
+  "name": "SP Kinh doanh",
+  "role_name": "SP Kinh doanh"
+ },
+ {
+  "desk_access": 1,
+  "disabled": 0,
+  "doctype": "Role",
+  "name": "SP QC",
+  "role_name": "SP QC"
+ },
+ {
+  "desk_access": 1,
+  "disabled": 0,
+  "doctype": "Role",
+  "name": "SP Quản lý",
+  "role_name": "SP Quản lý"
+ }
+]

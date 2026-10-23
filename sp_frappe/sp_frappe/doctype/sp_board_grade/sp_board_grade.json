@@ -1,0 +1,132 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-10-23 14:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "ply",
+  "flute",
+  "active",
+  "cb1",
+  "ect_target",
+  "bursting_target",
+  "sb_layers",
+  "layers"
+ ],
+ "fields": [
+  {
+   "fieldname": "ply",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Số lớp",
+   "options": "3\n5\n7",
+   "reqd": 1
+  },
+  {
+   "fieldname": "flute",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Loại sóng",
+   "options": "SP Flute",
+   "reqd": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "active",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Đang sử dụng"
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break",
+   "label": ""
+  },
+  {
+   "fieldname": "ect_target",
+   "fieldtype": "Float",
+   "label": "ECT mục tiêu (kN/m)",
+   "precision": "2"
+  },
+  {
+   "fieldname": "bursting_target",
+   "fieldtype": "Float",
+   "label": "Bục mục tiêu (kPa)",
+   "precision": "1"
+  },
+  {
+   "fieldname": "sb_layers",
+   "fieldtype": "Section Break",
+   "label": "Các lớp giấy"
+  },
+  {
+   "fieldname": "layers",
+   "fieldtype": "Table",
+   "label": "Lớp giấy",
+   "options": "SP Board Grade Layer",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-23 14:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "SP Frappe",
+ "name": "SP Board Grade",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SP Quản lý",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SP Kỹ thuật",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SP Kinh doanh"
+  },
+  {
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SP QC"
+  }
+ ],
+ "search_fields": "ply,flute",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,472 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-10-23 14:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "sb_id",
+  "spec_code",
+  "customer_code",
+  "revision",
+  "previous_revision",
+  "cb_id",
+  "spec_status",
+  "customer",
+  "customer_item_code",
+  "item_name",
+  "erpnext_item",
+  "sb_struct",
+  "box_style",
+  "blank_formula",
+  "ply",
+  "cb_struct",
+  "flute",
+  "board_grade",
+  "sb_dim",
+  "inner_l",
+  "inner_w",
+  "inner_h",
+  "cb_dim",
+  "blank_l",
+  "blank_w",
+  "area_per_box_m2",
+  "sb_proc",
+  "joint_type",
+  "print_method",
+  "color_count",
+  "colors",
+  "operations",
+  "sb_tool",
+  "cutting_die",
+  "cb_tool",
+  "printing_plate",
+  "sb_qc",
+  "ect_min",
+  "bct_min",
+  "burst_min",
+  "cb_qc",
+  "moisture_max",
+  "fsc_claim",
+  "sb_pack",
+  "qty_per_bundle",
+  "cb_pack",
+  "bundles_per_pallet",
+  "sb_appr",
+  "artwork_file",
+  "approved_sample_date",
+  "cb_appr",
+  "approved_by",
+  "usage_counted"
+ ],
+ "fields": [
+  {
+   "fieldname": "sb_id",
+   "fieldtype": "Section Break",
+   "label": "Định danh"
+  },
+  {
+   "fieldname": "spec_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Mã spec",
+   "no_copy": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "description": "Tự sinh từ tên khách hàng nếu để trống. Dùng trong mã spec KG-<mã>-####.",
+   "fieldname": "customer_code",
+   "fieldtype": "Data",
+   "label": "Mã khách hàng (viết tắt)",
+   "length": 8,
+   "no_copy": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "revision",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Phiên bản",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "previous_revision",
+   "fieldtype": "Link",
+   "label": "Phiên bản trước",
+   "no_copy": 1,
+   "options": "SP Product Spec",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb_id",
+   "fieldtype": "Column Break",
+   "label": ""
+  },
+  {
+   "default": "Nháp",
+   "fieldname": "spec_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Trạng thái",
+   "no_copy": 1,
+   "options": "Nháp\nChờ duyệt mẫu\nĐã duyệt\nNgưng",
+   "read_only": 1
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Khách hàng",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "customer_item_code",
+   "fieldtype": "Data",
+   "label": "Mã hàng của khách"
+  },
+  {
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Tên sản phẩm",
+   "reqd": 1
+  },
+  {
+   "fieldname": "erpnext_item",
+   "fieldtype": "Link",
+   "label": "Item ERPNext",
+   "no_copy": 1,
+   "options": "Item",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_struct",
+   "fieldtype": "Section Break",
+   "label": "Kết cấu"
+  },
+  {
+   "fieldname": "box_style",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Kiểu hộp",
+   "options": "SP Box Style",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "box_style.blank_formula",
+   "fieldname": "blank_formula",
+   "fieldtype": "Data",
+   "label": "Công thức khổ phôi",
+   "read_only": 1
+  },
+  {
+   "fieldname": "ply",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Số lớp",
+   "options": "3\n5\n7",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cb_struct",
+   "fieldtype": "Column Break",
+   "label": ""
+  },
+  {
+   "fieldname": "flute",
+   "fieldtype": "Link",
+   "label": "Loại sóng",
+   "options": "SP Flute",
+   "reqd": 1
+  },
+  {
+   "fieldname": "board_grade",
+   "fieldtype": "Link",
+   "label": "Kết cấu giấy",
+   "options": "SP Board Grade",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sb_dim",
+   "fieldtype": "Section Break",
+   "label": "Kích thước (mm)"
+  },
+  {
+   "fieldname": "inner_l",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Dài trong (L)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "inner_w",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Rộng trong (W)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "inner_h",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Cao trong (H)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cb_dim",
+   "fieldtype": "Column Break",
+   "label": ""
+  },
+  {
+   "description": "Tự tính; chỉ nhập tay khi công thức là MANUAL.",
+   "fieldname": "blank_l",
+   "fieldtype": "Float",
+   "label": "Khổ phôi dài",
+   "precision": "1",
+   "read_only_depends_on": "eval:doc.blank_formula!='MANUAL'"
+  },
+  {
+   "fieldname": "blank_w",
+   "fieldtype": "Float",
+   "label": "Khổ phôi rộng",
+   "precision": "1",
+   "read_only_depends_on": "eval:doc.blank_formula!='MANUAL'"
+  },
+  {
+   "fieldname": "area_per_box_m2",
+   "fieldtype": "Float",
+   "label": "Diện tích phôi (m²/thùng)",
+   "precision": "4",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_proc",
+   "fieldtype": "Section Break",
+   "label": "Gia công"
+  },
+  {
+   "default": "Dán keo",
+   "fieldname": "joint_type",
+   "fieldtype": "Select",
+   "label": "Kiểu mối nối",
+   "options": "Dán keo\nGhim\nBăng keo\nKhông"
+  },
+  {
+   "default": "Không in",
+   "fieldname": "print_method",
+   "fieldtype": "Select",
+   "label": "Phương pháp in",
+   "options": "Không in\nFlexo trực tiếp\nOffset bồi"
+  },
+  {
+   "fieldname": "color_count",
+   "fieldtype": "Int",
+   "label": "Số màu",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.print_method!='Không in'",
+   "fieldname": "colors",
+   "fieldtype": "Table",
+   "label": "Bảng màu",
+   "options": "SP Spec Color"
+  },
+  {
+   "fieldname": "operations",
+   "fieldtype": "Table",
+   "label": "Quy trình công đoạn",
+   "options": "SP Spec Operation"
+  },
+  {
+   "fieldname": "sb_tool",
+   "fieldtype": "Section Break",
+   "label": "Công cụ"
+  },
+  {
+   "description": "Bắt buộc khi kiểu hộp có đánh dấu 'Bắt buộc khuôn bế'.",
+   "fieldname": "cutting_die",
+   "fieldtype": "Link",
+   "label": "Khuôn bế",
+   "options": "SP Tooling"
+  },
+  {
+   "fieldname": "cb_tool",
+   "fieldtype": "Column Break",
+   "label": ""
+  },
+  {
+   "fieldname": "printing_plate",
+   "fieldtype": "Link",
+   "label": "Bản in",
+   "options": "SP Tooling"
+  },
+  {
+   "fieldname": "sb_qc",
+   "fieldtype": "Section Break",
+   "label": "Chất lượng"
+  },
+  {
+   "fieldname": "ect_min",
+   "fieldtype": "Float",
+   "label": "ECT tối thiểu (kN/m)",
+   "precision": "2"
+  },
+  {
+   "fieldname": "bct_min",
+   "fieldtype": "Float",
+   "label": "BCT tối thiểu (N)",
+   "precision": "1"
+  },
+  {
+   "fieldname": "burst_min",
+   "fieldtype": "Float",
+   "label": "Bục tối thiểu (kPa)",
+   "precision": "1"
+  },
+  {
+   "fieldname": "cb_qc",
+   "fieldtype": "Column Break",
+   "label": ""
+  },
+  {
+   "fieldname": "moisture_max",
+   "fieldtype": "Float",
+   "label": "Độ ẩm tối đa (%)",
+   "precision": "1"
+  },
+  {
+   "default": "Không",
+   "fieldname": "fsc_claim",
+   "fieldtype": "Select",
+   "label": "FSC",
+   "options": "Không\nFSC Mix\nFSC Recycled"
+  },
+  {
+   "fieldname": "sb_pack",
+   "fieldtype": "Section Break",
+   "label": "Đóng gói"
+  },
+  {
+   "fieldname": "qty_per_bundle",
+   "fieldtype": "Int",
+   "label": "Số thùng / bó"
+  },
+  {
+   "fieldname": "cb_pack",
+   "fieldtype": "Column Break",
+   "label": ""
+  },
+  {
+   "fieldname": "bundles_per_pallet",
+   "fieldtype": "Int",
+   "label": "Số bó / pallet"
+  },
+  {
+   "fieldname": "sb_appr",
+   "fieldtype": "Section Break",
+   "label": "Duyệt mẫu"
+  },
+  {
+   "fieldname": "artwork_file",
+   "fieldtype": "Attach",
+   "label": "File artwork"
+  },
+  {
+   "fieldname": "approved_sample_date",
+   "fieldtype": "Date",
+   "label": "Ngày duyệt mẫu"
+  },
+  {
+   "fieldname": "cb_appr",
+   "fieldtype": "Column Break",
+   "label": ""
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Link",
+   "label": "Người duyệt",
+   "no_copy": 1,
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "usage_counted",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Đã ghi nhận sử dụng công cụ",
+   "no_copy": 1,
+   "read_only": 1
+  }
+ ],
+ "image_field": null,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-23 14:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "SP Frappe",
+ "name": "SP Product Spec",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SP Quản lý",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SP Kỹ thuật",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SP Kinh doanh",
+   "write": 1
+  },
+  {
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SP QC",
+   "write": 1
+  }
+ ],
+ "search_fields": "spec_code,item_name,customer",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "item_name",
+ "track_changes": 1
+}

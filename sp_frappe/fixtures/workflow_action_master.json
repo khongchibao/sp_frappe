@@ -1,0 +1,22 @@
+[
+ {
+  "doctype": "Workflow Action Master",
+  "name": "Gửi duyệt",
+  "workflow_action_name": "Gửi duyệt"
+ },
+ {
+  "doctype": "Workflow Action Master",
+  "name": "Duyệt",
+  "workflow_action_name": "Duyệt"
+ },
+ {
+  "doctype": "Workflow Action Master",
+  "name": "Trả lại",
+  "workflow_action_name": "Trả lại"
+ },
+ {
+  "doctype": "Workflow Action Master",
+  "name": "Ngưng sử dụng",
+  "workflow_action_name": "Ngưng sử dụng"
+ }
+]

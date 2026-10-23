@@ -1,0 +1,86 @@
+[
+ {
+  "description": "Sóng A (3 lớp). [GIẢ ĐỊNH] độ dày và hệ số bù khổ - xác nhận theo xưởng.",
+  "doctype": "SP Flute",
+  "flute_code": "A",
+  "glue_flap_mm": 35,
+  "is_assumed": 1,
+  "length_allowance_mm": 19,
+  "name": "A",
+  "ply": "3",
+  "thickness_mm": 4.8,
+  "width_allowance_mm": 10
+ },
+ {
+  "description": "Sóng B (3 lớp). [GIẢ ĐỊNH] độ dày và hệ số bù khổ - xác nhận theo xưởng.",
+  "doctype": "SP Flute",
+  "flute_code": "B",
+  "glue_flap_mm": 35,
+  "is_assumed": 1,
+  "length_allowance_mm": 10,
+  "name": "B",
+  "ply": "3",
+  "thickness_mm": 2.5,
+  "width_allowance_mm": 5
+ },
+ {
+  "description": "Sóng C (3 lớp). [GIẢ ĐỊNH] độ dày và hệ số bù khổ - xác nhận theo xưởng.",
+  "doctype": "SP Flute",
+  "flute_code": "C",
+  "glue_flap_mm": 35,
+  "is_assumed": 1,
+  "length_allowance_mm": 14,
+  "name": "C",
+  "ply": "3",
+  "thickness_mm": 3.6,
+  "width_allowance_mm": 7
+ },
+ {
+  "description": "Sóng E (3 lớp). [GIẢ ĐỊNH] độ dày và hệ số bù khổ - xác nhận theo xưởng.",
+  "doctype": "SP Flute",
+  "flute_code": "E",
+  "glue_flap_mm": 35,
+  "is_assumed": 1,
+  "length_allowance_mm": 6,
+  "name": "E",
+  "ply": "3",
+  "thickness_mm": 1.5,
+  "width_allowance_mm": 3
+ },
+ {
+  "description": "Sóng BC (5 lớp). [GIẢ ĐỊNH] độ dày và hệ số bù khổ - xác nhận theo xưởng.",
+  "doctype": "SP Flute",
+  "flute_code": "BC",
+  "glue_flap_mm": 35,
+  "is_assumed": 1,
+  "length_allowance_mm": 24,
+  "name": "BC",
+  "ply": "5",
+  "thickness_mm": 6.1,
+  "width_allowance_mm": 12
+ },
+ {
+  "description": "Sóng BE (5 lớp). [GIẢ ĐỊNH] độ dày và hệ số bù khổ - xác nhận theo xưởng.",
+  "doctype": "SP Flute",
+  "flute_code": "BE",
+  "glue_flap_mm": 35,
+  "is_assumed": 1,
+  "length_allowance_mm": 16,
+  "name": "BE",
+  "ply": "5",
+  "thickness_mm": 4.0,
+  "width_allowance_mm": 8
+ },
+ {
+  "description": "Sóng CE (5 lớp). [GIẢ ĐỊNH] độ dày và hệ số bù khổ - xác nhận theo xưởng.",
+  "doctype": "SP Flute",
+  "flute_code": "CE",
+  "glue_flap_mm": 35,
+  "is_assumed": 1,
+  "length_allowance_mm": 20,
+  "name": "CE",
+  "ply": "5",
+  "thickness_mm": 5.1,
+  "width_allowance_mm": 10
+ }
+]

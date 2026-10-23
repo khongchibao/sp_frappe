@@ -1,0 +1,50 @@
+[
+ {
+  "blank_formula": "RSC_0201",
+  "doctype": "SP Box Style",
+  "name": "0201",
+  "requires_die": 0,
+  "style_code": "0201",
+  "style_name": "Thùng RSC (nắp chạm)"
+ },
+ {
+  "blank_formula": "FOL_0203",
+  "doctype": "SP Box Style",
+  "name": "0203",
+  "requires_die": 0,
+  "style_code": "0203",
+  "style_name": "Thùng nắp gập chồng (FOL)"
+ },
+ {
+  "blank_formula": "MANUAL",
+  "doctype": "SP Box Style",
+  "name": "0300",
+  "requires_die": 0,
+  "style_code": "0300",
+  "style_name": "Hộp telescope (nắp trùm)"
+ },
+ {
+  "blank_formula": "MANUAL",
+  "doctype": "SP Box Style",
+  "name": "0427",
+  "requires_die": 1,
+  "style_code": "0427",
+  "style_name": "Hộp bế gài (mailer)"
+ },
+ {
+  "blank_formula": "MANUAL",
+  "doctype": "SP Box Style",
+  "name": "DIECUT",
+  "requires_die": 1,
+  "style_code": "DIECUT",
+  "style_name": "Hộp bế theo khuôn riêng"
+ },
+ {
+  "blank_formula": "MANUAL",
+  "doctype": "SP Box Style",
+  "name": "SHEET",
+  "requires_die": 0,
+  "style_code": "SHEET",
+  "style_name": "Tấm carton (không gia công hộp)"
+ }
+]
