@@ -97,7 +97,13 @@ jobs:
         run: bench --site test_site migrate
       - name: Run tests
         working-directory: /home/runner/frappe-bench
-        run: bench --site test_site run-tests --app sp_frappe
+        run: |
+          set -o pipefail
+          bench --site test_site run-tests --app sp_frappe 2>&1 | tee /tmp/run-tests.log
+      - name: Summarise test failures
+        if: failure()
+        run: |
+          grep -nE "^( FAIL| ERROR)|^(frappe|[A-Za-z_.]+)(Error|Exception)[:(]|AssertionError|Ran [0-9]+ tests|^FAILED" /tmp/run-tests.log | head -40 | while IFS= read -r line; do echo "::error::${line:0:900}"; done
       - name: Demo data loads
         working-directory: /home/runner/frappe-bench
         run: bench --site test_site execute sp_frappe.demo.make_demo_data
