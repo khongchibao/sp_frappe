@@ -275,7 +275,8 @@ def create_new_revision(source_name: str) -> str:
 	)
 	if open_rev:
 		frappe.throw(_("Đã có phiên bản đang soạn/chờ duyệt: {0}").format(open_rev))
-	last = frappe.db.get_value("SP Product Spec", {"spec_code": src.spec_code}, "max(revision)") or src.revision
+	revisions = frappe.get_all("SP Product Spec", filters={"spec_code": src.spec_code}, pluck="revision")
+	last = max(revisions or [src.revision])
 
 	new = frappe.copy_doc(src)
 	new.update(

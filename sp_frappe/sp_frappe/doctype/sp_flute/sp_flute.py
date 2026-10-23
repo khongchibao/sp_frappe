@@ -4,6 +4,9 @@ from frappe.model.document import Document
 
 
 class SPFlute(Document):
+	def before_naming(self):
+		self.flute_code = (self.flute_code or "").strip().upper()
+
 	def validate(self):
 		self.flute_code = (self.flute_code or "").strip().upper()
 		for field, label in (
