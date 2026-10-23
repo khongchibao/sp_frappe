@@ -54,7 +54,9 @@ class TestReportsAndPrint(IntegrationTestCase):
 			doc = frappe.get_doc("Number Card", card)
 			return get_result(doc.as_dict(), doc.filters_json)
 
-		before = {c: count(c) for c in ("SP Spec Cho Duyet", "SP Spec Duyet Thang Nay", "SP Cong Cu Sap Het Tuoi")}
+		before = {
+			c: count(c) for c in ("SP Spec Cho Duyet", "SP Spec Duyet Thang Nay", "SP Cong Cu Sap Het Tuoi")
+		}
 		pending = make_spec()
 		ready_for_approval(pending)
 		run_workflow(pending, "Gửi duyệt")

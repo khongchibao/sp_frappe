@@ -2,7 +2,11 @@ frappe.ui.form.on("SP Product Spec", {
 	setup(frm) {
 		frm.set_query("flute", () => ({ filters: { ply: frm.doc.ply || undefined } }));
 		frm.set_query("board_grade", () => ({
-			filters: { active: 1, ply: frm.doc.ply || undefined, flute: frm.doc.flute || undefined },
+			filters: {
+				active: 1,
+				ply: frm.doc.ply || undefined,
+				flute: frm.doc.flute || undefined,
+			},
 		}));
 		frm.set_query("cutting_die", () => ({ filters: { tooling_type: "Khuôn bế" } }));
 		frm.set_query("printing_plate", () => ({ filters: { tooling_type: "Bản in" } }));
@@ -15,9 +19,12 @@ frappe.ui.form.on("SP Product Spec", {
 					__("Tạo phiên bản R{0} từ spec này?", [(frm.doc.revision || 1) + 1]),
 					() =>
 						frappe
-							.xcall("sp_frappe.sp_frappe.doctype.sp_product_spec.sp_product_spec.create_new_revision", {
-								source_name: frm.doc.name,
-							})
+							.xcall(
+								"sp_frappe.sp_frappe.doctype.sp_product_spec.sp_product_spec.create_new_revision",
+								{
+									source_name: frm.doc.name,
+								}
+							)
 							.then((name) => frappe.set_route("Form", "SP Product Spec", name))
 				);
 			});

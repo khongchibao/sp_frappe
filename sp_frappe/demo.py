@@ -31,7 +31,9 @@ OFFSET = {"print_method": "Offset bồi"}
 
 
 def _colors(*specs):
-	return [{"ink_code": c, "pantone": p, "coverage_percent": cov, "print_side": "Ngoài"} for c, p, cov in specs]
+	return [
+		{"ink_code": c, "pantone": p, "coverage_percent": cov, "print_side": "Ngoài"} for c, p, cov in specs
+	]
 
 
 def make_demo_data() -> dict:
@@ -79,13 +81,17 @@ def make_demo_data() -> dict:
 		)  # fmt: skip
 		doc.insert()
 		if target != "Nháp":
-			doc.update({"artwork_file": f"/files/demo-artwork-{i:02d}.pdf", "approved_sample_date": frappe.utils.today()})
+			doc.update(
+				{
+					"artwork_file": f"/files/demo-artwork-{i:02d}.pdf",
+					"approved_sample_date": frappe.utils.today(),
+				}
+			)
 			doc.save()
 			apply_workflow(doc, "Gửi duyệt")
 			if target == "Đã duyệt":
 				doc.reload()
 				apply_workflow(doc, "Duyệt")
-	frappe.db.commit()
 	return summary()
 
 
@@ -117,7 +123,9 @@ def _grade(ply, flute, papers, ect, burst):
 	name = f"{ply}{flute}-" + "/".join(str(g) for g in gsms)
 	if frappe.db.exists("SP Board Grade", name):
 		return frappe.get_doc("SP Board Grade", name)
-	layers = [{"layer_role": role, "paper": paper} for role, paper in zip(LAYER_ROLES[ply], papers, strict=True)]
+	layers = [
+		{"layer_role": role, "paper": paper} for role, paper in zip(LAYER_ROLES[ply], papers, strict=True)
+	]
 	doc = frappe.get_doc(
 		{"doctype": "SP Board Grade", "ply": str(ply), "flute": flute, "ect_target": ect, "bursting_target": burst, "layers": layers}
 	)  # fmt: skip

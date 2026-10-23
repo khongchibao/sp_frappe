@@ -10,7 +10,9 @@ class TestSPPaper(IntegrationTestCase):
 		self.assertRaises(frappe.ValidationError, doc.insert)
 
 	def test_create(self):
-		doc = frappe.get_doc({"doctype": "SP Paper", "paper_code": "T-OK", "paper_type": "Test liner", "gsm": 150})
+		doc = frappe.get_doc(
+			{"doctype": "SP Paper", "paper_code": "T-OK", "paper_type": "Test liner", "gsm": 150}
+		)
 		doc.insert()
 		self.assertEqual(doc.color, "Nâu")
 		self.assertEqual(doc.active, 1)

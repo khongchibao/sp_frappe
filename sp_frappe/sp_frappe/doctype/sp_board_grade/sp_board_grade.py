@@ -25,12 +25,16 @@ class SPBoardGrade(Document):
 	def validate_flute(self):
 		flute_ply = frappe.db.get_value("SP Flute", self.flute, "ply")
 		if flute_ply and flute_ply != self.ply:
-			frappe.throw(_("Loại sóng {0} là sóng {1} lớp, không khớp {2} lớp").format(self.flute, flute_ply, self.ply))
+			frappe.throw(
+				_("Loại sóng {0} là sóng {1} lớp, không khớp {2} lớp").format(self.flute, flute_ply, self.ply)
+			)
 
 	def validate_layers(self):
 		ply = int(self.ply)
 		if len(self.layers) != ply:
-			frappe.throw(_("Kết cấu {0} lớp cần đúng {0} dòng lớp giấy (hiện có {1})").format(ply, len(self.layers)))
+			frappe.throw(
+				_("Kết cấu {0} lớp cần đúng {0} dòng lớp giấy (hiện có {1})").format(ply, len(self.layers))
+			)
 		for idx, row in enumerate(self.layers, start=1):
 			row.layer_no = idx
 			if not row.gsm:
@@ -40,7 +44,9 @@ class SPBoardGrade(Document):
 			frappe.throw(_("Lớp đầu phải là 'Mặt' và lớp cuối phải là 'Đáy'"))
 		flute_layers = roles.count("Sóng")
 		if flute_layers != ply // 2:
-			frappe.throw(_("Kết cấu {0} lớp cần {1} lớp 'Sóng' (hiện có {2})").format(ply, ply // 2, flute_layers))
+			frappe.throw(
+				_("Kết cấu {0} lớp cần {1} lớp 'Sóng' (hiện có {2})").format(ply, ply // 2, flute_layers)
+			)
 		for i, role in enumerate(roles[1:-1], start=2):
 			expected = "Sóng" if i % 2 == 0 else "Lót giữa"
 			if role != expected:

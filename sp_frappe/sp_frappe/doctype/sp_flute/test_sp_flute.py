@@ -18,7 +18,9 @@ class TestSPFlute(IntegrationTestCase):
 		self.assertEqual(frappe.db.get_value("SP Flute", "E", "ply"), "3")
 
 	def test_negative_allowance_rejected(self):
-		doc = frappe.get_doc({"doctype": "SP Flute", "flute_code": "zz", "ply": "3", "length_allowance_mm": -1})
+		doc = frappe.get_doc(
+			{"doctype": "SP Flute", "flute_code": "zz", "ply": "3", "length_allowance_mm": -1}
+		)
 		self.assertRaises(frappe.ValidationError, doc.insert)
 
 	def test_code_uppercased(self):

@@ -22,7 +22,13 @@ def ensure_erp_roots():
 			ignore_permissions=True
 		)
 	for doctype, field, leaf, parent_field, root in (
-		("Customer Group", "customer_group_name", "Commercial", "parent_customer_group", "All Customer Groups"),
+		(
+			"Customer Group",
+			"customer_group_name",
+			"Commercial",
+			"parent_customer_group",
+			"All Customer Groups",
+		),
 		("Territory", "territory_name", "Vietnam", "parent_territory", "All Territories"),
 	):
 		if not frappe.db.exists(doctype, leaf):
@@ -52,7 +58,14 @@ def make_customer(name: str = "SP Test Thực phẩm An Phát") -> str:
 def make_paper(code: str, gsm: int, paper_type: str = "Kraft", color: str = "Nâu") -> str:
 	if not frappe.db.exists("SP Paper", code):
 		frappe.get_doc(
-			{"doctype": "SP Paper", "paper_code": code, "paper_type": paper_type, "gsm": gsm, "color": color, "active": 1}
+			{
+				"doctype": "SP Paper",
+				"paper_code": code,
+				"paper_type": paper_type,
+				"gsm": gsm,
+				"color": color,
+				"active": 1,
+			}
 		).insert(ignore_permissions=True)
 	return code
 
@@ -62,8 +75,12 @@ def make_board_grade(ply: int = 3, flute: str = "B", gsms=(125, 100, 125), roles
 	layers = []
 	for i, (role, gsm) in enumerate(zip(roles, gsms, strict=True), start=1):
 		kind = "Medium" if role in ("Sóng", "Lót giữa") else "Kraft"
-		layers.append({"layer_no": i, "layer_role": role, "paper": make_paper(f"T-{kind[:3].upper()}-{gsm}", gsm, kind)})
-	doc = frappe.get_doc({"doctype": "SP Board Grade", "ply": str(ply), "flute": flute, "layers": layers, **kw})
+		layers.append(
+			{"layer_no": i, "layer_role": role, "paper": make_paper(f"T-{kind[:3].upper()}-{gsm}", gsm, kind)}
+		)
+	doc = frappe.get_doc(
+		{"doctype": "SP Board Grade", "ply": str(ply), "flute": flute, "layers": layers, **kw}
+	)
 	doc.insert(ignore_permissions=True)
 	return doc
 

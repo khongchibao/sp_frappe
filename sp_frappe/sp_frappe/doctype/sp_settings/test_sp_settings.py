@@ -3,7 +3,6 @@ from frappe.tests import IntegrationTestCase
 
 from sp_frappe.sp_frappe.doctype.sp_settings.sp_settings import get_lock_fields, parse_lock_fields
 
-
 IGNORE_TEST_RECORD_DEPENDENCIES = ["Item Group", "UOM"]
 
 

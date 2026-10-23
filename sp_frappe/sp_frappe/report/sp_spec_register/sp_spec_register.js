@@ -7,7 +7,12 @@ frappe.query_reports["SP Spec Register"] = {
 			fieldtype: "Select",
 			options: "\nNháp\nChờ duyệt mẫu\nĐã duyệt\nNgưng",
 		},
-		{ fieldname: "box_style", label: __("Kiểu hộp"), fieldtype: "Link", options: "SP Box Style" },
+		{
+			fieldname: "box_style",
+			label: __("Kiểu hộp"),
+			fieldtype: "Link",
+			options: "SP Box Style",
+		},
 		{ fieldname: "from_date", label: __("Tạo từ ngày"), fieldtype: "Date" },
 		{ fieldname: "to_date", label: __("Đến ngày"), fieldtype: "Date" },
 	],

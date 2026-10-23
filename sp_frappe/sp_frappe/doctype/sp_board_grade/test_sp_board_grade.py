@@ -8,15 +8,15 @@ IGNORE_TEST_RECORD_DEPENDENCIES = ["Supplier"]
 
 class TestSPBoardGrade(IntegrationTestCase):
 	def test_name_pattern_3_ply(self):
-		self.assertEqual(make_board_grade(3, "B", (125, 100, 125)).name, "3B-125/100/125")
+		self.assertEqual(make_board_grade(3, "B", (135, 95, 135)).name, "3B-135/95/135")
 
 	def test_name_pattern_5_ply(self):
-		doc = make_board_grade(5, "BC", (150, 125, 150, 125, 150))
-		self.assertEqual(doc.name, "5BC-150/125/150/125/150")
+		doc = make_board_grade(5, "BC", (155, 115, 155, 115, 155))
+		self.assertEqual(doc.name, "5BC-155/115/155/115/155")
 
 	def test_duplicate_gets_suffix(self):
-		first = make_board_grade(3, "C", (150, 100, 150))
-		second = make_board_grade(3, "C", (150, 100, 150))
+		first = make_board_grade(3, "C", (165, 105, 165))
+		second = make_board_grade(3, "C", (165, 105, 165))
 		self.assertEqual(second.name, first.name + "-2")
 
 	def test_layer_count_must_equal_ply(self):

@@ -20,7 +20,7 @@ class BlankResult:
 def _num(value, label: str, *, minimum_exclusive: float | None = None, minimum: float | None = None) -> float:
 	try:
 		number = float(value)
-	except (TypeError, ValueError):
+	except TypeError, ValueError:
 		raise BlankError(f"{label} phải là số") from None
 	if minimum_exclusive is not None and number <= minimum_exclusive:
 		raise BlankError(f"{label} phải lớn hơn {minimum_exclusive:g}")

@@ -49,7 +49,9 @@ class TestCalcBlank(unittest.TestCase):
 			calc_blank("RSC_0201", 100, 100, 100, {**B, "length_allowance_mm": -1})
 
 	def test_zero_allowances_allowed(self):
-		r = calc_blank("RSC_0201", 100, 100, 100, {"length_allowance_mm": 0, "width_allowance_mm": 0, "glue_flap_mm": 0})
+		r = calc_blank(
+			"RSC_0201", 100, 100, 100, {"length_allowance_mm": 0, "width_allowance_mm": 0, "glue_flap_mm": 0}
+		)
 		self.assertEqual((r.blank_l, r.blank_w), (400, 200))
 
 	def test_string_numbers_from_form(self):
@@ -66,11 +68,23 @@ class TestCalcBlank(unittest.TestCase):
 		self.assertAlmostEqual(r.area_m2, 10045 * 5005 / 1e6, places=3)
 
 	def test_rounding_one_decimal(self):
-		r = calc_blank("RSC_0201", 100, 100, 100, {"length_allowance_mm": 0.26, "width_allowance_mm": 0.04, "glue_flap_mm": 35})
+		r = calc_blank(
+			"RSC_0201",
+			100,
+			100,
+			100,
+			{"length_allowance_mm": 0.26, "width_allowance_mm": 0.04, "glue_flap_mm": 35},
+		)
 		self.assertEqual(r.blank_l, 435.3)
 		self.assertEqual(r.blank_w, 200.0)
 
 	def test_flute_params_from_flute_differ(self):
-		b = calc_blank("RSC_0201", 300, 200, 150, {"length_allowance_mm": 24, "width_allowance_mm": 12, "glue_flap_mm": 35})
+		b = calc_blank(
+			"RSC_0201",
+			300,
+			200,
+			150,
+			{"length_allowance_mm": 24, "width_allowance_mm": 12, "glue_flap_mm": 35},
+		)
 		c = calc_blank("RSC_0201", 300, 200, 150, B)
 		self.assertGreater(b.blank_l, c.blank_l)

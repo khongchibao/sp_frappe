@@ -1,15 +1,16 @@
 {# Phiếu Kỹ thuật Sản phẩm - A4. Sau khi sửa file này chạy: python scripts/build_print_format.py #}
 {%- set grade = frappe.get_doc("SP Board Grade", doc.board_grade) if doc.board_grade else None -%}
 <style>
-	.sp-wrap { font-family: Arial, sans-serif; font-size: 10.5pt; color: #111; }
-	.sp-wrap table { width: 100%; border-collapse: collapse; margin-bottom: 8px; }
-	.sp-wrap th, .sp-wrap td { border: 1px solid #444; padding: 3px 6px; vertical-align: top; }
+	.sp-wrap { font-family: Arial, sans-serif; font-size: 9.5pt; color: #111; padding-bottom: 24px; }
+	.sp-wrap table { width: 100%; border-collapse: collapse; margin-bottom: 6px; }
+	.sp-wrap th, .sp-wrap td { border: 1px solid #444; padding: 1.5px 5px; vertical-align: top; }
 	.sp-wrap th { background: #eee; text-align: left; width: 22%; font-weight: 600; }
 	.sp-wrap td.num { text-align: right; }
-	.sp-wrap h1 { text-align: center; font-size: 16pt; margin: 4px 0 2px; }
-	.sp-wrap h3 { font-size: 11pt; margin: 10px 0 4px; text-transform: uppercase; }
+	.sp-wrap h1 { text-align: center; font-size: 15pt; margin: 2px 0 2px; }
+	.sp-wrap h3 { font-size: 10.5pt; margin: 6px 0 2px; text-transform: uppercase; }
 	.sp-wrap .meta { text-align: center; margin-bottom: 8px; }
-	.sp-wrap .sign td { height: 70px; text-align: center; vertical-align: bottom; }
+	.sp-wrap .sign { page-break-inside: avoid; }
+	.sp-wrap .sign td { height: 46px; text-align: center; vertical-align: bottom; }
 	.sp-wrap .foot { position: fixed; bottom: 0; left: 0; right: 0; font-size: 8.5pt; color: #444; border-top: 1px solid #444; padding-top: 3px; }
 </style>
 <div class="sp-wrap">
@@ -67,17 +68,12 @@
 		{% endfor %}
 	</table>
 
-	<h3>6. Yêu cầu chất lượng</h3>
+	<h3>6. Yêu cầu chất lượng và quy cách đóng gói</h3>
 	<table>
 		<tr><th>ECT tối thiểu</th><td>{{ doc.ect_min or "" }} kN/m</td><th>BCT tối thiểu</th><td>{{ doc.bct_min or "" }} N</td></tr>
 		<tr><th>Bục tối thiểu</th><td>{{ doc.burst_min or "" }} kPa</td><th>Độ ẩm tối đa</th><td>{{ doc.moisture_max or "" }} %</td></tr>
-		<tr><th>FSC</th><td colspan="3">{{ doc.fsc_claim }}</td></tr>
-	</table>
-
-	<h3>7. Quy cách đóng gói</h3>
-	<table>
-		<tr><th>Số thùng / bó</th><td>{{ doc.qty_per_bundle or "" }}</td><th>Số bó / pallet</th><td>{{ doc.bundles_per_pallet or "" }}</td></tr>
-		<tr><th>Duyệt mẫu</th><td>{{ frappe.format_date(doc.approved_sample_date) if doc.approved_sample_date else "" }}</td><th>Người duyệt</th><td>{{ doc.approved_by or "" }}</td></tr>
+		<tr><th>FSC</th><td>{{ doc.fsc_claim }}</td><th>Số thùng / bó</th><td>{{ doc.qty_per_bundle or "" }}</td></tr>
+		<tr><th>Số bó / pallet</th><td>{{ doc.bundles_per_pallet or "" }}</td><th>Duyệt mẫu</th><td>{{ frappe.utils.formatdate(doc.approved_sample_date, "dd/mm/yyyy") if doc.approved_sample_date else "" }} {{ doc.approved_by or "" }}</td></tr>
 	</table>
 
 	<table class="sign">
@@ -85,5 +81,5 @@
 		<tr><td>{{ doc.owner }}</td><td>&nbsp;</td><td>{{ doc.approved_by or "" }}</td></tr>
 	</table>
 
-	<div class="foot">Mã tài liệu: {{ doc.spec_code }} - Rev {{ doc.revision }} &nbsp;|&nbsp; In ngày {{ frappe.format_date(frappe.utils.today()) }}</div>
+	<div class="foot">Mã tài liệu: {{ doc.spec_code }} - Rev {{ doc.revision }} &nbsp;|&nbsp; In ngày {{ frappe.utils.formatdate(frappe.utils.today(), "dd/mm/yyyy") }}</div>
 </div>

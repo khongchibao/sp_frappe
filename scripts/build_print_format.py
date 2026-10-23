@@ -4,9 +4,16 @@ Chạy lại sau mỗi lần sửa template:  python scripts/build_print_format.
 """
 
 import json
+from datetime import datetime, timezone
 from pathlib import Path
 
-DIR = Path(__file__).resolve().parent.parent / "sp_frappe" / "sp_frappe" / "print_format" / "phieu_ky_thuat_san_pham"
+DIR = (
+	Path(__file__).resolve().parent.parent
+	/ "sp_frappe"
+	/ "sp_frappe"
+	/ "print_format"
+	/ "phieu_ky_thuat_san_pham"
+)
 NAME = "Phiếu Kỹ thuật Sản phẩm"
 
 
@@ -29,7 +36,8 @@ def main():
 		"margin_left": 12.0,
 		"margin_right": 12.0,
 		"margin_top": 12.0,
-		"modified": "2026-10-23 14:00:00.000000",
+		# Frappe chỉ đồng bộ lại file chuẩn khi `modified` mới hơn bản trong DB
+		"modified": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S.%f"),
 		"modified_by": "Administrator",
 		"module": "SP Frappe",
 		"name": NAME,

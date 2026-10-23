@@ -16,7 +16,15 @@ from sp_frappe.tests.utils import (
 	spec_values,
 )
 
-IGNORE_TEST_RECORD_DEPENDENCIES = ["Customer", "Item", "User", "SP Tooling", "SP Board Grade", "Item Group", "UOM"]
+IGNORE_TEST_RECORD_DEPENDENCIES = [
+	"Customer",
+	"Item",
+	"User",
+	"SP Tooling",
+	"SP Board Grade",
+	"Item Group",
+	"UOM",
+]
 
 
 class SPTestCase(IntegrationTestCase):
@@ -112,7 +120,10 @@ class TestValidation(SPTestCase):
 			make_spec(print_method="Flexo trực tiếp")
 
 	def test_color_count_and_coverage(self):
-		colors = [{"ink_code": "K", "coverage_percent": 80}, {"ink_code": "C", "pantone": "300C", "coverage_percent": 40}]
+		colors = [
+			{"ink_code": "K", "coverage_percent": 80},
+			{"ink_code": "C", "pantone": "300C", "coverage_percent": 40},
+		]
 		spec = make_spec(print_method="Flexo trực tiếp", colors=colors)
 		self.assertEqual(spec.color_count, 2)
 		with self.assertRaises(frappe.ValidationError):
@@ -153,7 +164,9 @@ class TestApproval(SPTestCase):
 		self.assertEqual(spec.approved_by, "Administrator")
 		self.assertEqual(spec.erpnext_item, spec.spec_code)
 		item = frappe.get_doc("Item", spec.spec_code)
-		self.assertEqual((item.item_group, item.stock_uom, item.item_name), ("Products", "Thùng", spec.item_name))
+		self.assertEqual(
+			(item.item_group, item.stock_uom, item.item_name), ("Products", "Thùng", spec.item_name)
+		)
 		self.assertIn("400 x 300 x 200", item.description)
 
 	def test_item_creation_can_be_disabled(self):

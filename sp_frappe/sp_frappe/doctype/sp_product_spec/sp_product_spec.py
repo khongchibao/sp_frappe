@@ -29,7 +29,9 @@ class SPProductSpec(Document):
 	def autoname(self):
 		if not self.spec_code:
 			if not self.customer_code:
-				self.customer_code = derive_customer_code(frappe.db.get_value("Customer", self.customer, "customer_name") or self.customer)
+				self.customer_code = derive_customer_code(
+					frappe.db.get_value("Customer", self.customer, "customer_name") or self.customer
+				)
 			self.customer_code = normalize_customer_code(self.customer_code) or "KH"
 			self.spec_code = make_autoname(f"KG-{self.customer_code}-.####")
 		self.name = f"{self.spec_code}-R{self.revision or 1}"
@@ -83,12 +85,26 @@ class SPProductSpec(Document):
 	def validate_structure(self, before):
 		flute_ply = frappe.db.get_value("SP Flute", self.flute, "ply")
 		if flute_ply != self.ply:
-			frappe.throw(_("Loại sóng {0} là sóng {1} lớp, không khớp {2} lớp của spec").format(self.flute, flute_ply, self.ply))
-		grade = frappe.db.get_value("SP Board Grade", self.board_grade, ["ply", "flute", "active"], as_dict=True)
+			frappe.throw(
+				_("Loại sóng {0} là sóng {1} lớp, không khớp {2} lớp của spec").format(
+					self.flute, flute_ply, self.ply
+				)
+			)
+		grade = frappe.db.get_value(
+			"SP Board Grade", self.board_grade, ["ply", "flute", "active"], as_dict=True
+		)
 		if grade.ply != self.ply:
-			frappe.throw(_("Kết cấu giấy {0} là {1} lớp, không khớp {2} lớp của spec").format(self.board_grade, grade.ply, self.ply))
+			frappe.throw(
+				_("Kết cấu giấy {0} là {1} lớp, không khớp {2} lớp của spec").format(
+					self.board_grade, grade.ply, self.ply
+				)
+			)
 		if grade.flute != self.flute:
-			frappe.throw(_("Kết cấu giấy {0} dùng sóng {1}, không khớp sóng {2} của spec").format(self.board_grade, grade.flute, self.flute))
+			frappe.throw(
+				_("Kết cấu giấy {0} dùng sóng {1}, không khớp sóng {2} của spec").format(
+					self.board_grade, grade.flute, self.flute
+				)
+			)
 		if not grade.active and (before is None or before.board_grade != self.board_grade):
 			frappe.throw(_("Kết cấu giấy {0} đã ngưng sử dụng").format(self.board_grade))
 
@@ -99,14 +115,25 @@ class SPProductSpec(Document):
 				frappe.throw(_("{0} phải trong khoảng 50-2500 mm").format(self.meta.get_label(field)))
 
 	def calculate_blank(self):
-		style = frappe.db.get_value("SP Box Style", self.box_style, ["blank_formula", "requires_die"], as_dict=True)
+		style = frappe.db.get_value(
+			"SP Box Style", self.box_style, ["blank_formula", "requires_die"], as_dict=True
+		)
 		self.blank_formula = style.blank_formula
 		flute = frappe.db.get_value(
-			"SP Flute", self.flute, ["length_allowance_mm", "width_allowance_mm", "glue_flap_mm"], as_dict=True
+			"SP Flute",
+			self.flute,
+			["length_allowance_mm", "width_allowance_mm", "glue_flap_mm"],
+			as_dict=True,
 		)
 		try:
 			result = calc_blank(
-				style.blank_formula, self.inner_l, self.inner_w, self.inner_h, flute, self.blank_l, self.blank_w
+				style.blank_formula,
+				self.inner_l,
+				self.inner_w,
+				self.inner_h,
+				flute,
+				self.blank_l,
+				self.blank_w,
 			)
 		except BlankError as e:
 			frappe.throw(_(str(e)))
@@ -145,7 +172,9 @@ class SPProductSpec(Document):
 				frappe.throw(_("{0} phải lớn hơn 0").format(self.meta.get_label(field)))
 
 	def validate_approval(self, before):
-		self.flags.approved_now = self.spec_status == APPROVED and (before is None or before.spec_status != APPROVED)
+		self.flags.approved_now = self.spec_status == APPROVED and (
+			before is None or before.spec_status != APPROVED
+		)
 		if not self.flags.approved_now:
 			return
 		missing = [
@@ -201,7 +230,9 @@ class SPProductSpec(Document):
 		uom = settings.stock_uom or "Thùng"
 		group = ensure_item_group(settings.item_group or "Products")
 		if not frappe.db.exists("UOM", uom):
-			frappe.get_doc({"doctype": "UOM", "uom_name": uom, "must_be_whole_number": 1}).insert(ignore_permissions=True)
+			frappe.get_doc({"doctype": "UOM", "uom_name": uom, "must_be_whole_number": 1}).insert(
+				ignore_permissions=True
+			)
 		values = {
 			"item_name": self.item_name,
 			"item_group": group,
@@ -213,7 +244,9 @@ class SPProductSpec(Document):
 			item.update({k: v for k, v in values.items() if k != "stock_uom"})
 			item.save(ignore_permissions=True)
 		else:
-			item = frappe.get_doc({"doctype": "Item", "item_code": self.spec_code, "is_stock_item": 1, **values})
+			item = frappe.get_doc(
+				{"doctype": "Item", "item_code": self.spec_code, "is_stock_item": 1, **values}
+			)
 			item.insert(ignore_permissions=True)
 		self.db_set("erpnext_item", item.name, update_modified=False)
 		self.erpnext_item = item.name
