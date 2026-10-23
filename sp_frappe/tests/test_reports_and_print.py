@@ -80,7 +80,11 @@ class TestReportsAndPrint(IntegrationTestCase):
 			colors=[{"ink_code": "K", "pantone": "Black C", "coverage_percent": 100}],
 			operations=[{"seq": 1, "operation": "In flexo", "note": "2 màu"}],
 		)  # fmt: skip
-		html = frappe.get_print("SP Product Spec", spec.name, print_format=PRINT_FORMAT)
+		# Render thẳng template Jinja: frappe.get_print cần assets đã build (CI dùng --skip-assets)
+		html = frappe.render_template(
+			frappe.db.get_value("Print Format", PRINT_FORMAT, "html"),
+			{"doc": frappe.get_doc("SP Product Spec", spec.name)},
+		)
 		for text in ("PHIẾU KỸ THUẬT SẢN PHẨM", spec.spec_code, "Rev 1", "400 x 300 x 200", "1445.0 x 505.0",
 		             "0.7297", "Black C", "3B-125/100/125", "Lập", "Kiểm tra", "Duyệt"):  # fmt: skip
 			self.assertIn(text, html)
