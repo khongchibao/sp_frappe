@@ -1,0 +1,113 @@
+{
+ "app": "sp_frappe",
+ "charts": [],
+ "content": "[{\"id\": \"hd_cards\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>Tổng quan</b></span>\", \"col\": 12}}, {\"id\": \"nc1\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"SP Spec Cho Duyet\", \"col\": 4}}, {\"id\": \"nc2\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"SP Spec Duyet Thang Nay\", \"col\": 4}}, {\"id\": \"nc3\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"SP Cong Cu Sap Het Tuoi\", \"col\": 4}}, {\"id\": \"sp1\", \"type\": \"spacer\", \"data\": {\"col\": 12}}, {\"id\": \"hd_sc\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>Lối tắt</b></span>\", \"col\": 12}}, {\"id\": \"sc0\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Spec sản phẩm\", \"col\": 3}}, {\"id\": \"sc1\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Kết cấu giấy\", \"col\": 3}}, {\"id\": \"sc2\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Mã giấy\", \"col\": 3}}, {\"id\": \"sc3\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Loại sóng\", \"col\": 3}}, {\"id\": \"sc4\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Kiểu hộp\", \"col\": 3}}, {\"id\": \"sc5\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Công cụ\", \"col\": 3}}, {\"id\": \"sc6\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Sổ spec\", \"col\": 3}}, {\"id\": \"sc7\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Tuổi thọ công cụ\", \"col\": 3}}, {\"id\": \"sc8\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Cài đặt SP\", \"col\": 3}}]",
+ "creation": "2026-10-23 14:00:00.000000",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "package",
+ "idx": 0,
+ "is_hidden": 0,
+ "label": "Spec Sản phẩm",
+ "links": [],
+ "modified": "2026-10-23 14:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "SP Frappe",
+ "name": "Spec Sản phẩm",
+ "number_cards": [
+  {
+   "label": "Spec chờ duyệt",
+   "number_card_name": "SP Spec Cho Duyet"
+  },
+  {
+   "label": "Spec đã duyệt tháng này",
+   "number_card_name": "SP Spec Duyet Thang Nay"
+  },
+  {
+   "label": "Công cụ sắp hết tuổi",
+   "number_card_name": "SP Cong Cu Sap Het Tuoi"
+  }
+ ],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [
+  {
+   "role": "SP Quản lý"
+  },
+  {
+   "role": "SP Kỹ thuật"
+  },
+  {
+   "role": "SP Kinh doanh"
+  },
+  {
+   "role": "SP QC"
+  }
+ ],
+ "sequence_id": 90.0,
+ "shortcuts": [
+  {
+   "doc_view": "List",
+   "label": "Spec sản phẩm",
+   "link_to": "SP Product Spec",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Kết cấu giấy",
+   "link_to": "SP Board Grade",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Mã giấy",
+   "link_to": "SP Paper",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Loại sóng",
+   "link_to": "SP Flute",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Kiểu hộp",
+   "link_to": "SP Box Style",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Công cụ",
+   "link_to": "SP Tooling",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "label": "Sổ spec",
+   "link_to": "SP Spec Register",
+   "type": "Report"
+  },
+  {
+   "doc_view": "",
+   "label": "Tuổi thọ công cụ",
+   "link_to": "SP Tooling Life",
+   "type": "Report"
+  },
+  {
+   "doc_view": "List",
+   "label": "Cài đặt SP",
+   "link_to": "SP Settings",
+   "type": "DocType"
+  }
+ ],
+ "sidebar_items": [],
+ "standard": 1,
+ "title": "Spec Sản phẩm",
+ "type": "Workspace"
+}
