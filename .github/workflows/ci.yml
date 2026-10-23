@@ -104,6 +104,7 @@ jobs:
         if: failure()
         run: |
           grep -nE "^( FAIL| ERROR)|^(frappe|[A-Za-z_.]+)(Error|Exception)[:(]|AssertionError|Ran [0-9]+ tests|^FAILED" /tmp/run-tests.log | head -40 | while IFS= read -r line; do echo "::error::${line:0:900}"; done
+          grep -nE '^\s+File "' /tmp/run-tests.log | grep -v site-packages | head -40 | while IFS= read -r line; do echo "::error::FRAME ${line:0:300}"; done
       - name: Demo data loads
         working-directory: /home/runner/frappe-bench
         run: bench --site test_site execute sp_frappe.demo.make_demo_data
